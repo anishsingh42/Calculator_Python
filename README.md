@@ -32,7 +32,9 @@ This calculator application allows users to perform basic arithmetic operations 
 
 ## Screenshots
 ![Screenshot 1](screenshots/screenshot-0.png)
+<br> 
 ![Screenshot 2](screenshots/screenshot-1.png)
+<br>
 ![Screenshot 3](screenshots/screenshot-2.png)
 
 ## Installation
