@@ -17,6 +17,7 @@ class Calculator_App:
             ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 2, 3),
             ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 3, 3),
             ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3),
+            ("All Clear", 5, 0)
         ]
 
         #create buttons
@@ -28,8 +29,12 @@ class Calculator_App:
             self.buttons.append(button)
 
     def create_button(self, label, row, col):
-        button = tk.Button(self.root, text=label, width=5, height=2, font=("Helvetica", 15), command=lambda: self.on_button_click(label))
-        button.grid(row=row, column=col)
+        if(label!="All Clear"):
+            button = tk.Button(self.root, text=label, width=5, height=2, font=("Helvetica", 15), command=lambda: self.on_button_click(label))
+            button.grid(row=row, column=col)
+        else:
+            button = tk.Button(self.root, text=label, width=15, height=2, font=("Helvetica", 15), command=lambda: self.all_clear(label))
+            button.grid(row=row, column=col, columnspan=4)
         return button
     
     def on_button_click(self, label):
@@ -45,6 +50,11 @@ class Calculator_App:
             current_text = self.entry.get()
             self.entry.delete(0, tk.END)
             self.entry.insert(tk.END, current_text + label)
+
+    def all_clear(self,label):
+        if label == "All Clear":
+            self.entry.delete(0, tk.END)
+
 
 root = tk.Tk()
 app = Calculator_App(root)
